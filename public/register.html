@@ -1,0 +1,1250 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TaskFlow - Create Account</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary:#4f46e5;
+    --primary-dark:#4338ca;
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --text:#172033;
+    --muted:#718096;
+    --border:#e4e8f0;
+    --success:#10b981;
+    --danger:#ef4444;
+}
+
+body{
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+    min-height:100vh;
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.auth-page{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.brand-side{
+    position:relative;
+    overflow:hidden;
+    background:
+        linear-gradient(
+            145deg,
+            #111827 0%,
+            #1e1b4b 45%,
+            #312e81 100%
+        );
+    color:white;
+    padding:60px;
+    display:flex;
+    align-items:center;
+}
+
+.brand-side::before{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:rgba(99,102,241,.18);
+    top:-150px;
+    right:-130px;
+}
+
+.brand-side::after{
+    content:"";
+    position:absolute;
+    width:330px;
+    height:330px;
+    border-radius:50%;
+    background:rgba(59,130,246,.12);
+    bottom:-130px;
+    left:-100px;
+}
+
+.brand-content{
+    position:relative;
+    z-index:2;
+    max-width:560px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:55px;
+}
+
+.logo-icon{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(
+        135deg,
+        #6366f1,
+        #3b82f6
+    );
+    font-size:24px;
+    font-weight:800;
+    box-shadow:
+        0 10px 30px rgba(79,70,229,.35);
+}
+
+.logo-text{
+    font-size:25px;
+    font-weight:800;
+    letter-spacing:-.5px;
+}
+
+.brand-content h1{
+    font-size:48px;
+    line-height:1.12;
+    letter-spacing:-1.5px;
+    margin-bottom:22px;
+}
+
+.brand-content h1 span{
+    color:#818cf8;
+}
+
+.brand-description{
+    color:#c7d2fe;
+    font-size:17px;
+    line-height:1.75;
+    max-width:500px;
+    margin-bottom:40px;
+}
+
+/* Features */
+
+.features{
+    display:grid;
+    gap:18px;
+}
+
+.feature{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.feature-icon{
+    width:42px;
+    height:42px;
+    flex-shrink:0;
+    border-radius:12px;
+    background:rgba(255,255,255,.1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.feature-text strong{
+    display:block;
+    font-size:14px;
+    margin-bottom:3px;
+}
+
+.feature-text span{
+    color:#a5b4fc;
+    font-size:13px;
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.form-side{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 25px;
+    background:#fff;
+}
+
+.form-container{
+    width:100%;
+    max-width:470px;
+}
+
+.mobile-logo{
+    display:none;
+}
+
+.form-header{
+    margin-bottom:30px;
+}
+
+.form-header h2{
+    font-size:32px;
+    letter-spacing:-.7px;
+    margin-bottom:9px;
+}
+
+.form-header p{
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.6;
+}
+
+.form-group{
+    margin-bottom:19px;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.input-wrapper{
+    position:relative;
+}
+
+.input-icon{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#9aa4b2;
+    font-size:17px;
+    pointer-events:none;
+}
+
+.form-control{
+    width:100%;
+    height:50px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:0 15px 0 45px;
+    outline:none;
+    font-size:14px;
+    color:var(--text);
+    background:#fff;
+    transition:.2s ease;
+}
+
+.form-control.password-input{
+    padding-right:48px;
+}
+
+.form-control:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px rgba(79,70,229,.09);
+}
+
+.form-control::placeholder{
+    color:#a4adba;
+}
+
+/* Password toggle */
+
+.password-toggle{
+    position:absolute;
+    right:13px;
+    top:50%;
+    transform:translateY(-50%);
+    border:0;
+    background:none;
+    cursor:pointer;
+    color:#8a94a4;
+    font-size:17px;
+    padding:5px;
+}
+
+.password-toggle:hover{
+    color:var(--primary);
+}
+
+/* Password strength */
+
+.password-strength{
+    margin-top:8px;
+    display:none;
+}
+
+.strength-bar{
+    height:5px;
+    border-radius:10px;
+    background:#e5e7eb;
+    overflow:hidden;
+}
+
+.strength-fill{
+    height:100%;
+    width:0%;
+    border-radius:10px;
+    transition:.25s ease;
+}
+
+.strength-text{
+    display:block;
+    margin-top:5px;
+    font-size:11px;
+    color:var(--muted);
+}
+
+/* Terms */
+
+.terms{
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+    margin:8px 0 23px;
+}
+
+.terms input{
+    width:16px;
+    height:16px;
+    margin-top:2px;
+    accent-color:var(--primary);
+    cursor:pointer;
+}
+
+.terms label{
+    font-size:12px;
+    line-height:1.5;
+    color:var(--muted);
+}
+
+.terms a{
+    color:var(--primary);
+    font-weight:600;
+    text-decoration:none;
+}
+
+.terms a:hover{
+    text-decoration:underline;
+}
+
+/* Button */
+
+.submit-btn{
+    width:100%;
+    height:51px;
+    border:0;
+    border-radius:12px;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        #6366f1
+    );
+    color:white;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s ease;
+    box-shadow:
+        0 8px 20px rgba(79,70,229,.22);
+}
+
+.submit-btn:hover{
+    background:linear-gradient(
+        135deg,
+        var(--primary-dark),
+        #4f46e5
+    );
+    transform:translateY(-1px);
+    box-shadow:
+        0 12px 25px rgba(79,70,229,.28);
+}
+
+.submit-btn:disabled{
+    opacity:.7;
+    cursor:not-allowed;
+    transform:none;
+}
+
+/* Divider */
+
+.divider{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin:27px 0;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--border);
+}
+
+.divider span{
+    color:#9aa4b2;
+    font-size:12px;
+}
+
+/* Login */
+
+.login-link{
+    text-align:center;
+    color:var(--muted);
+    font-size:14px;
+}
+
+.login-link a{
+    color:var(--primary);
+    text-decoration:none;
+    font-weight:700;
+}
+
+.login-link a:hover{
+    text-decoration:underline;
+}
+
+/* Message */
+
+.message{
+    display:none;
+    padding:12px 14px;
+    border-radius:10px;
+    margin-bottom:18px;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.message.error{
+    display:block;
+    color:#b91c1c;
+    background:#fef2f2;
+    border:1px solid #fecaca;
+}
+
+.message.success{
+    display:block;
+    color:#047857;
+    background:#ecfdf5;
+    border:1px solid #a7f3d0;
+}
+
+/* Loading */
+
+.loading{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
+
+.spinner{
+    width:16px;
+    height:16px;
+    border:2px solid rgba(255,255,255,.4);
+    border-top-color:#fff;
+    border-radius:50%;
+    animation:spin .7s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .auth-page{
+        grid-template-columns:1fr;
+    }
+
+    .brand-side{
+        display:none;
+    }
+
+    .form-side{
+        min-height:100vh;
+        padding:35px 22px;
+    }
+
+    .mobile-logo{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        margin-bottom:35px;
+    }
+
+    .mobile-logo .logo-icon{
+        width:42px;
+        height:42px;
+        font-size:20px;
+    }
+
+    .mobile-logo .logo-text{
+        color:var(--text);
+        font-size:22px;
+    }
+}
+
+@media(max-width:500px){
+
+    .form-side{
+        padding:25px 17px;
+    }
+
+    .form-header h2{
+        font-size:27px;
+    }
+
+    .form-header{
+        margin-bottom:25px;
+    }
+
+    .form-control{
+        height:48px;
+    }
+
+    .submit-btn{
+        height:49px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="auth-page">
+
+    <!-- =========================
+         LEFT BRAND SIDE
+    ========================== -->
+
+    <section class="brand-side">
+
+        <div class="brand-content">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    ✓
+                </div>
+
+                <div class="logo-text">
+                    TaskFlow
+                </div>
+
+            </div>
+
+            <h1>
+                Organize your work.<br>
+                <span>Achieve more.</span>
+            </h1>
+
+            <p class="brand-description">
+                Create your TaskFlow account and manage your
+                projects, tasks, deadlines and team collaboration
+                from one simple workspace.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ✓
+                    </div>
+
+                    <div class="feature-text">
+                        <strong>Smart Task Management</strong>
+                        <span>Keep every task organized and visible.</span>
+                    </div>
+
+                </div>
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ◫
+                    </div>
+
+                    <div class="feature-text">
+                        <strong>Project Tracking</strong>
+                        <span>Monitor project progress in one place.</span>
+                    </div>
+
+                </div>
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ◷
+                    </div>
+
+                    <div class="feature-text">
+                        <strong>Stay On Schedule</strong>
+                        <span>Track deadlines and project priorities.</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         REGISTER FORM
+    ========================== -->
+
+    <section class="form-side">
+
+        <div class="form-container">
+
+            <!-- Mobile Logo -->
+
+            <div class="mobile-logo">
+
+                <div class="logo-icon">
+                    ✓
+                </div>
+
+                <div class="logo-text">
+                    TaskFlow
+                </div>
+
+            </div>
+
+
+            <div class="form-header">
+
+                <h2>
+                    Create your account
+                </h2>
+
+                <p>
+                    Start managing your projects and tasks with TaskFlow.
+                </p>
+
+            </div>
+
+
+            <div id="message" class="message"></div>
+
+
+            <form id="registerForm">
+
+                <!-- Name -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            👤
+                        </span>
+
+                        <input
+                            type="text"
+                            id="name"
+                            class="form-control"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Email -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            ✉
+                        </span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            class="form-control"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Password -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            class="form-control password-input"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                            required
+                            minlength="6"
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="togglePassword"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="password-strength"
+                        id="passwordStrength"
+                    >
+
+                        <div class="strength-bar">
+
+                            <div
+                                class="strength-fill"
+                                id="strengthFill"
+                            ></div>
+
+                        </div>
+
+                        <span
+                            class="strength-text"
+                            id="strengthText"
+                        >
+                            Password strength
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Confirm Password -->
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔐
+                        </span>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            class="form-control password-input"
+                            placeholder="Confirm your password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="toggleConfirmPassword"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Terms -->
+
+                <div class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <label for="terms">
+                        I agree to the
+                        <a href="#" onclick="return false;">
+                            Terms of Service
+                        </a>
+                        and
+                        <a href="#" onclick="return false;">
+                            Privacy Policy
+                        </a>.
+                    </label>
+
+                </div>
+
+
+                <!-- Submit -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    id="registerBtn"
+                >
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <div class="divider">
+                <span>Already have an account?</span>
+            </div>
+
+
+            <div class="login-link">
+
+                <a href="login.html">
+                    Sign in to TaskFlow
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const registerForm =
+    document.getElementById("registerForm");
+
+const nameInput =
+    document.getElementById("name");
+
+const emailInput =
+    document.getElementById("email");
+
+const passwordInput =
+    document.getElementById("password");
+
+const confirmPasswordInput =
+    document.getElementById("confirmPassword");
+
+const termsInput =
+    document.getElementById("terms");
+
+const registerBtn =
+    document.getElementById("registerBtn");
+
+const message =
+    document.getElementById("message");
+
+const togglePassword =
+    document.getElementById("togglePassword");
+
+const toggleConfirmPassword =
+    document.getElementById("toggleConfirmPassword");
+
+const passwordStrength =
+    document.getElementById("passwordStrength");
+
+const strengthFill =
+    document.getElementById("strengthFill");
+
+const strengthText =
+    document.getElementById("strengthText");
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+function showMessage(text, type){
+
+    message.textContent = text;
+
+    message.className =
+        "message " + type;
+
+}
+
+
+/* =========================
+   PASSWORD SHOW/HIDE
+========================= */
+
+togglePassword.addEventListener(
+    "click",
+    function(){
+
+        if(passwordInput.type === "password"){
+
+            passwordInput.type = "text";
+
+            togglePassword.textContent = "🙈";
+
+        }else{
+
+            passwordInput.type = "password";
+
+            togglePassword.textContent = "👁";
+
+        }
+
+    }
+);
+
+
+toggleConfirmPassword.addEventListener(
+    "click",
+    function(){
+
+        if(confirmPasswordInput.type === "password"){
+
+            confirmPasswordInput.type = "text";
+
+            toggleConfirmPassword.textContent = "🙈";
+
+        }else{
+
+            confirmPasswordInput.type = "password";
+
+            toggleConfirmPassword.textContent = "👁";
+
+        }
+
+    }
+);
+
+
+/* =========================
+   PASSWORD STRENGTH
+========================= */
+
+passwordInput.addEventListener(
+    "input",
+    function(){
+
+        const password =
+            passwordInput.value;
+
+        if(!password){
+
+            passwordStrength.style.display = "none";
+
+            strengthFill.style.width = "0%";
+
+            return;
+        }
+
+        passwordStrength.style.display = "block";
+
+        let score = 0;
+
+        if(password.length >= 6){
+            score++;
+        }
+
+        if(password.length >= 10){
+            score++;
+        }
+
+        if(/[A-Z]/.test(password)){
+            score++;
+        }
+
+        if(/[0-9]/.test(password)){
+            score++;
+        }
+
+        if(/[^A-Za-z0-9]/.test(password)){
+            score++;
+        }
+
+
+        if(score <= 1){
+
+            strengthFill.style.width = "25%";
+
+            strengthText.textContent =
+                "Weak password";
+
+        }else if(score <= 3){
+
+            strengthFill.style.width = "55%";
+
+            strengthText.textContent =
+                "Medium password";
+
+        }else{
+
+            strengthFill.style.width = "100%";
+
+            strengthText.textContent =
+                "Strong password";
+
+        }
+
+    }
+);
+
+
+/* =========================
+   REGISTER
+========================= */
+
+registerForm.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+        const name =
+            nameInput.value.trim();
+
+        const email =
+            emailInput.value.trim();
+
+        const password =
+            passwordInput.value;
+
+        const confirmPassword =
+            confirmPasswordInput.value;
+
+
+        /* Validation */
+
+        if(name.length < 2){
+
+            showMessage(
+                "Please enter your full name.",
+                "error"
+            );
+
+            nameInput.focus();
+
+            return;
+        }
+
+
+        if(!email){
+
+            showMessage(
+                "Please enter your email address.",
+                "error"
+            );
+
+            emailInput.focus();
+
+            return;
+        }
+
+
+        if(password.length < 6){
+
+            showMessage(
+                "Password must contain at least 6 characters.",
+                "error"
+            );
+
+            passwordInput.focus();
+
+            return;
+        }
+
+
+        if(password !== confirmPassword){
+
+            showMessage(
+                "Passwords do not match.",
+                "error"
+            );
+
+            confirmPasswordInput.focus();
+
+            return;
+        }
+
+
+        if(!termsInput.checked){
+
+            showMessage(
+                "Please agree to the Terms of Service and Privacy Policy.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        /* Loading */
+
+        registerBtn.disabled = true;
+
+        registerBtn.innerHTML = `
+            <span class="loading">
+                <span class="spinner"></span>
+                Creating Account...
+            </span>
+        `;
+
+
+        try{
+
+            const response =
+                await fetch(
+                    "/api/auth/register",
+                    {
+                        method:"POST",
+
+                        headers:{
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:JSON.stringify({
+                            name:name,
+                            email:email,
+                            password:password
+                        })
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if(!response.ok){
+
+                throw new Error(
+                    result.message ||
+                    result.error ||
+                    "Registration failed."
+                );
+
+            }
+
+
+            showMessage(
+                result.message ||
+                "Account created successfully! Redirecting to login...",
+                "success"
+            );
+
+
+            registerForm.reset();
+
+            passwordStrength.style.display =
+                "none";
+
+
+            setTimeout(
+                function(){
+
+                    window.location.href =
+                        "login.html";
+
+                },
+                1200
+            );
+
+
+        }catch(error){
+
+            console.error(
+                "Registration error:",
+                error
+            );
+
+
+            showMessage(
+                error.message ||
+                "Unable to connect to the server.",
+                "error"
+            );
+
+
+            registerBtn.disabled = false;
+
+            registerBtn.textContent =
+                "Create Account";
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "id": "1790862252159",
+      "name": "ali23",
+      "email": "ali123@gmail.com",
+      "password": "$2b$10$peUZ634iWuFb0.QqpUwLMuIHOXruETi.BxkS4JiYcjk1bn5X4tfTW",
+      "createdAt": "2026-10-01T13:44:12.159Z"
+    },
+    {
+      "id": "1790945635304vzuzof",
+      "name": "AHMAD",
+      "email": "ahmad123@gmail.com",
+      "password": "$2b$10$ZGztpKlWDANWmHAcottHt.L0BB/6YNao3ZociG8SZg9SCQ3ujNaqe",
+      "createdAt": "2026-10-02T12:53:55.304Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1790863258401",
+      "name": "machine learning project",
+      "description": "Aeronexus",
+      "ownerId": "1790862252159",
+      "createdAt": "2026-10-01T14:00:58.401Z"
+    },
+    {
+      "id": "1790944650856",
+      "name": "database project",
+      "description": "CREATE DATABASE",
+      "ownerId": "1790862252159",
+      "createdAt": "2026-10-02T12:37:30.859Z"
+    },
+    {
+      "id": "179094605071540e09j",
+      "name": "PYTHON",
+      "description": "Stack",
+      "ownerId": "1790945635304vzuzof",
+      "createdAt": "2026-10-02T13:00:50.715Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1790944687004",
+      "name": "Dataset Collection updated",
+      "description": "NEW",
+      "status": "completed",
+      "projectId": "1790944650856",
+      "ownerId": "1790862252159",
+      "createdAt": "2026-10-02T12:38:07.004Z",
+      "priority": "medium",
+      "dueDate": "2026-10-15",
+      "assignedTo": "1790862252159",
+      "updatedAt": "2026-10-02T13:06:47.531Z"
+    },
+    {
+      "id": "1790948111395ow0l49",
+      "name": "knn",
+      "description": "select value",
+      "status": "in-progress",
+      "priority": "medium",
+      "dueDate": "2026-10-30",
+      "assignedTo": "1790862252159",
+      "projectId": "1790863258401",
+      "ownerId": "1790862252159",
+      "createdAt": "2026-10-02T13:35:11.395Z",
+      "updatedAt": "2026-10-02T13:35:11.395Z"
+    }
+  ],
+  "comments": []
+}
